@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://be3m1034mnmvx"]
+
+[ext_resource type="PackedScene" uid="uid://k8m7wpgalpmf" path="res://Shape.tscn" id="1_t6lng"]
+
+[node name="Node3D" type="Node3D" unique_id=396437818]
+
+[node name="MeshInstance3D" parent="." unique_id=122508487 instance=ExtResource("1_t6lng")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=182385640]
+transform = Transform3D(0.7373056, 0.03907609, 0.6744284, -0.0149376355, 0.9990246, -0.04155277, -0.6753943, 0.020562734, 0.7371701, 10.293594, 1.5648391, 12.890475)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=817080082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4932342, 3.35097)
