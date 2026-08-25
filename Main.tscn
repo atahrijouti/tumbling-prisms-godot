@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cuxb5vdkxiav2"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j02q3"]
+height = 1.0
+radial_segments = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rxg2q"]
+height = 1.0
+radial_segments = 5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_glv2v"]
+height = 1.0
+radial_segments = 6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uu6xs"]
+height = 1.0
+radial_segments = 7
+
+[node name="MainScene" type="Node3D" unique_id=1808004640]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1691968508]
+transform = Transform3D(-0.44721353, 0.25555065, -0.85714287, 0, 0.95831484, 0.2857143, 0.89442724, 0.1277753, -0.42857137, -3, 1, -3)
+
+[node name="Prisms" type="Node3D" parent="." unique_id=568341442]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Prisms" unique_id=1506979513]
+mesh = SubResource("CylinderMesh_j02q3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Prisms" unique_id=852181148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+mesh = SubResource("CylinderMesh_rxg2q")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Prisms" unique_id=8852234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("CylinderMesh_glv2v")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Prisms" unique_id=2110452142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+mesh = SubResource("CylinderMesh_uu6xs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1223837618]
+transform = Transform3D(1, 0, 0, 0, 0.89758223, 0.44084707, 0, -0.44084707, 0.89758223, 0, 2.8881836, 2.9876335)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1022293719]
+transform = Transform3D(0.46450824, -0.27046213, 0.84325725, 0.1304953, 0.96273065, 0.23689808, -0.8759016, 0, 0.48249033, 2.4791641, 2.0429034, 0)
