@@ -1,11 +1,16 @@
 extends Node3D
 
+@export var prism_count: int = 4
 
-# Called when the node enters the scene tree for the first time.
+@onready var prisms: Node3D = $Prisms
+
 func _ready() -> void:
-	pass # Replace with function body.
+	var eight := MeshInstance3D.new()
+	var mesh = CylinderMesh.new()
 
+	mesh.height = 1.0
+	mesh.radial_segments = 8
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	eight.mesh = mesh
+	eight.position = Vector3(0, 0, -4)
+	prisms.add_child(eight)
