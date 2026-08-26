@@ -2,47 +2,175 @@
 
 [ext_resource type="Script" uid="uid://dkrdoiqn51vrh" path="res://Main.gd" id="1_glv2v"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_j02q3"]
-height = 1.0
+[sub_resource type="CylinderMesh" id="CylinderMesh_glv2v"]
+height = 0.5
 radial_segments = 4
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_rxg2q"]
-height = 1.0
+[sub_resource type="CylinderMesh" id="CylinderMesh_uu6xs"]
+height = 0.5
 radial_segments = 5
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_glv2v"]
-height = 1.0
+[sub_resource type="CylinderMesh" id="CylinderMesh_r0du0"]
+height = 0.5
 radial_segments = 6
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_uu6xs"]
-height = 1.0
+[sub_resource type="CylinderMesh" id="CylinderMesh_cm0pq"]
+height = 0.5
 radial_segments = 7
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fos0i"]
+height = 0.5
+radial_segments = 8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3dxm6"]
+height = 0.5
+radial_segments = 9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lgr22"]
+height = 0.5
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_trn2v"]
+height = 0.5
+radial_segments = 11
 
 [node name="MainScene" type="Node3D" unique_id=1808004640]
 script = ExtResource("1_glv2v")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1691968508]
-transform = Transform3D(-0.44721353, 0.25555065, -0.85714287, 0, 0.95831484, 0.2857143, 0.89442724, 0.1277753, -0.42857137, -3, 1, -3)
-
-[node name="Prisms" type="Node3D" parent="." unique_id=568341442]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Prisms" unique_id=1506979513]
-mesh = SubResource("CylinderMesh_j02q3")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Prisms" unique_id=852181148]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-mesh = SubResource("CylinderMesh_rxg2q")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Prisms" unique_id=8852234]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-mesh = SubResource("CylinderMesh_glv2v")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Prisms" unique_id=2110452142]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
-mesh = SubResource("CylinderMesh_uu6xs")
+transform = Transform3D(-0.74915296, 0.27046722, -0.604663, 0, 0.9128407, 0.40831584, 0.6623971, 0.305891, -0.6838573, -4.550171, 3.0726318, -1.6461182)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1223837618]
 transform = Transform3D(1, 0, 0, 0, 0.89758223, 0.44084707, 0, -0.44084707, 0.89758223, 0, 2.8881836, 2.9876335)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1022293719]
 transform = Transform3D(0.46450824, -0.27046213, 0.84325725, 0.1304953, 0.96273065, 0.23689808, -0.8759016, 0, 0.48249033, 2.4791641, 2.0429034, 0)
+
+[node name="Prisms" type="Node3D" parent="." unique_id=1294502340]
+
+[node name="Prism 4" type="Node3D" parent="Prisms" unique_id=1291997626]
+
+[node name="RotationAnchor" type="Node3D" parent="Prisms/Prism 4" unique_id=1772020476]
+
+[node name="AdjustXAnchor" type="Node3D" parent="Prisms/Prism 4/RotationAnchor" unique_id=843760343]
+
+[node name="RedressAnchor" type="Node3D" parent="Prisms/Prism 4/RotationAnchor/AdjustXAnchor" unique_id=589538406]
+transform = Transform3D(0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Prism" type="MeshInstance3D" parent="Prisms/Prism 4/RotationAnchor/AdjustXAnchor/RedressAnchor" unique_id=304618697]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_glv2v")
+
+[node name="MirrorAnchor" type="Node3D" parent="Prisms/Prism 4" unique_id=62675149]
+
+[node name="Prism 5" type="Node3D" parent="Prisms" unique_id=1054170605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="RotationAnchor" type="Node3D" parent="Prisms/Prism 5" unique_id=854302889]
+
+[node name="AdjustXAnchor" type="Node3D" parent="Prisms/Prism 5/RotationAnchor" unique_id=634617116]
+
+[node name="RedressAnchor" type="Node3D" parent="Prisms/Prism 5/RotationAnchor/AdjustXAnchor" unique_id=8769042]
+transform = Transform3D(0.809017, 0.58778524, 0, -0.58778524, 0.809017, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Prism" type="MeshInstance3D" parent="Prisms/Prism 5/RotationAnchor/AdjustXAnchor/RedressAnchor" unique_id=554069832]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_uu6xs")
+
+[node name="MirrorAnchor" type="Node3D" parent="Prisms/Prism 5" unique_id=1019039840]
+
+[node name="Prism 6" type="Node3D" parent="Prisms" unique_id=558003581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="RotationAnchor" type="Node3D" parent="Prisms/Prism 6" unique_id=1480512518]
+
+[node name="AdjustXAnchor" type="Node3D" parent="Prisms/Prism 6/RotationAnchor" unique_id=129213119]
+
+[node name="RedressAnchor" type="Node3D" parent="Prisms/Prism 6/RotationAnchor/AdjustXAnchor" unique_id=126681422]
+transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Prism" type="MeshInstance3D" parent="Prisms/Prism 6/RotationAnchor/AdjustXAnchor/RedressAnchor" unique_id=1817585452]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_r0du0")
+
+[node name="MirrorAnchor" type="Node3D" parent="Prisms/Prism 6" unique_id=774242673]
+
+[node name="Prism 7" type="Node3D" parent="Prisms" unique_id=42331965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="RotationAnchor" type="Node3D" parent="Prisms/Prism 7" unique_id=1824264137]
+
+[node name="AdjustXAnchor" type="Node3D" parent="Prisms/Prism 7/RotationAnchor" unique_id=181573423]
+
+[node name="RedressAnchor" type="Node3D" parent="Prisms/Prism 7/RotationAnchor/AdjustXAnchor" unique_id=515755554]
+transform = Transform3D(0.90096885, 0.43388376, 0, -0.43388376, 0.90096885, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Prism" type="MeshInstance3D" parent="Prisms/Prism 7/RotationAnchor/AdjustXAnchor/RedressAnchor" unique_id=1326217629]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_cm0pq")
+
+[node name="MirrorAnchor" type="Node3D" parent="Prisms/Prism 7" unique_id=742885112]
+
+[node name="Prism 8" type="Node3D" parent="Prisms" unique_id=554956022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="RotationAnchor" type="Node3D" parent="Prisms/Prism 8" unique_id=1069538568]
+
+[node name="AdjustXAnchor" type="Node3D" parent="Prisms/Prism 8/RotationAnchor" unique_id=297395139]
+
+[node name="RedressAnchor" type="Node3D" parent="Prisms/Prism 8/RotationAnchor/AdjustXAnchor" unique_id=1959368743]
+transform = Transform3D(0.9238795, 0.38268346, 0, -0.38268346, 0.9238795, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Prism" type="MeshInstance3D" parent="Prisms/Prism 8/RotationAnchor/AdjustXAnchor/RedressAnchor" unique_id=2040257589]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_fos0i")
+
+[node name="MirrorAnchor" type="Node3D" parent="Prisms/Prism 8" unique_id=832941594]
+
+[node name="Prism 9" type="Node3D" parent="Prisms" unique_id=819158861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="RotationAnchor" type="Node3D" parent="Prisms/Prism 9" unique_id=1908209001]
+
+[node name="AdjustXAnchor" type="Node3D" parent="Prisms/Prism 9/RotationAnchor" unique_id=178507087]
+
+[node name="RedressAnchor" type="Node3D" parent="Prisms/Prism 9/RotationAnchor/AdjustXAnchor" unique_id=1643568436]
+transform = Transform3D(0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Prism" type="MeshInstance3D" parent="Prisms/Prism 9/RotationAnchor/AdjustXAnchor/RedressAnchor" unique_id=1834890491]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_3dxm6")
+
+[node name="MirrorAnchor" type="Node3D" parent="Prisms/Prism 9" unique_id=611050700]
+
+[node name="Prism 10" type="Node3D" parent="Prisms" unique_id=1960689180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="RotationAnchor" type="Node3D" parent="Prisms/Prism 10" unique_id=76556777]
+
+[node name="AdjustXAnchor" type="Node3D" parent="Prisms/Prism 10/RotationAnchor" unique_id=404923766]
+
+[node name="RedressAnchor" type="Node3D" parent="Prisms/Prism 10/RotationAnchor/AdjustXAnchor" unique_id=1465282665]
+transform = Transform3D(0.95105654, 0.309017, 0, -0.309017, 0.95105654, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Prism" type="MeshInstance3D" parent="Prisms/Prism 10/RotationAnchor/AdjustXAnchor/RedressAnchor" unique_id=310671389]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_lgr22")
+
+[node name="MirrorAnchor" type="Node3D" parent="Prisms/Prism 10" unique_id=1527394554]
+
+[node name="Prism 11" type="Node3D" parent="Prisms" unique_id=157258558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="RotationAnchor" type="Node3D" parent="Prisms/Prism 11" unique_id=2057404775]
+
+[node name="AdjustXAnchor" type="Node3D" parent="Prisms/Prism 11/RotationAnchor" unique_id=966127522]
+
+[node name="RedressAnchor" type="Node3D" parent="Prisms/Prism 11/RotationAnchor/AdjustXAnchor" unique_id=1186372837]
+transform = Transform3D(0.959493, 0.28173256, 0, -0.28173256, 0.959493, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Prism" type="MeshInstance3D" parent="Prisms/Prism 11/RotationAnchor/AdjustXAnchor/RedressAnchor" unique_id=1199692310]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_trn2v")
+
+[node name="MirrorAnchor" type="Node3D" parent="Prisms/Prism 11" unique_id=1286464334]
