@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dt0t4cdltogn6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bun7f"]
+height = 0.5
+radial_segments = 4
+
+[node name="Prism" type="Node3D" unique_id=1748292164]
+
+[node name="translationNode" type="Node3D" parent="." unique_id=1901094442]
+
+[node name="rotationNode" type="Node3D" parent="translationNode" unique_id=303574702]
+
+[node name="adjustXNode" type="Node3D" parent="translationNode/rotationNode" unique_id=1181247001]
+
+[node name="redressNode" type="Node3D" parent="translationNode/rotationNode/adjustXNode" unique_id=820435690]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="translationNode/rotationNode/adjustXNode/redressNode" unique_id=180094284]
+mesh = SubResource("CylinderMesh_bun7f")

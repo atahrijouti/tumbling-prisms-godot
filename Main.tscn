@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cuxb5vdkxiav2"]
 
 [ext_resource type="Script" uid="uid://dkrdoiqn51vrh" path="res://Main.gd" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://dt0t4cdltogn6" path="res://scenes/Prism.tscn" id="2_uu6xs"]
 
 [node name="MainScene" type="Node3D" unique_id=1808004640]
 script = ExtResource("1_glv2v")
@@ -15,3 +16,6 @@ transform = Transform3D(1, 0, 0, 0, 0.89758223, 0.44084707, 0, -0.44084707, 0.89
 transform = Transform3D(0.46450824, -0.27046213, 0.84325725, 0.1304953, 0.96273065, 0.23689808, -0.8759016, 0, 0.48249033, 2.4791641, 2.0429034, 0)
 
 [node name="Prisms" type="Node3D" parent="." unique_id=1294502340]
+
+[node name="Prism" parent="." unique_id=1748292164 instance=ExtResource("2_uu6xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.3073235)
