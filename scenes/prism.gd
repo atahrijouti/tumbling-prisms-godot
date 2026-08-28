@@ -2,15 +2,25 @@ class_name Prism extends Node3D
 
 static var _scene: PackedScene
 
-@export_range(4, 32) var segments: int = 4:
+@export_range(4, 32) var _segments: int = 4:
 	set(value):
-		segments = maxi(4, value)
+		_segments = maxi(4, value)
 		if is_node_ready():
 			applySegments()
+			
+@export_range(0, 1) var _progress: float = 0.0:
+	set(value):
+		_progress = minf(maxf(0, value), 1)
+		if is_node_ready():
+			applyProgress(_progress)
 
-@onready var translationNode: Node3D = $translationNode
-@onready var redressNode: Node3D = $translationNode/rotationNode/adjustXNode/redressNode
-@onready var meshInstance: MeshInstance3D = $translationNode/rotationNode/adjustXNode/redressNode/MeshInstance3D
+var maxAngle: float = PI;
+
+@onready var meshInstance: MeshInstance3D = %MeshInstance3D
+
+@onready var translationNode: Node3D = %translationNode
+@onready var redressNode: Node3D = %redressNode
+@onready var rotationNode: Node3D = %rotationNode
 
 
 static func create(segments: int) -> Prism:
@@ -18,6 +28,8 @@ static func create(segments: int) -> Prism:
 		_scene = load("res://scenes/Prism.tscn")
 	var prism: Prism = _scene.instantiate()
 	prism.segments = segments
+	prism.position.y = 0.5 / sin(PI / float(segments))
+	prism.rotation.x = PI / 2
 	return prism
 
 func _ready() -> void:
@@ -29,11 +41,18 @@ func applySegments() -> void:
 		mesh = CylinderMesh.new()
 		mesh.height = 0.5
 		meshInstance.mesh = mesh
-	mesh.radial_segments = segments
+	mesh.radial_segments = _segments
 
-	var angleSum := (segments - 2) * PI
-	var redressAngle := PI / 2.0 - angleSum / segments / 2.0
-	var maxAngle = PI - angleSum / segments
+	var angleSum := (_segments - 2) * PI
+	var redressAngle := PI / 2.0 - angleSum / _segments / 2.0
+	maxAngle = PI - angleSum / _segments
 
 	redressNode.rotation.z = -redressAngle
-	translationNode.position.z = segments - 2
+	translationNode.position.z = _segments - 2
+
+func applyProgress(progress: float) -> void:
+	var angle = -maxAngle * progress
+	rotationNode.rotation.z = angle
+	translationNode.position.x = -progress
+	pass
+	
