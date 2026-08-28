@@ -1,3 +1,5 @@
+@tool
+
 class_name Prism extends Node3D
 
 static var _scene: PackedScene
@@ -16,13 +18,11 @@ static var _scene: PackedScene
 
 var maxAngle: float = PI;
 
-@onready var meshInstance: MeshInstance3D = %MeshInstance3D
-
-@onready var translationNode: Node3D = %translationNode
-@onready var redressNode: Node3D = %redressNode
-@onready var rotationNode: Node3D = %rotationNode
-@onready var adjustXNode: Node3D = %adjustXNode
-
+@onready var translationNode: Node3D = $translationNode
+@onready var rotationNode: Node3D = $translationNode/rotationNode
+@onready var adjustXNode: Node3D = $translationNode/rotationNode/adjustXNode
+@onready var redressNode: Node3D = $translationNode/rotationNode/adjustXNode/redressNode
+@onready var meshInstance: MeshInstance3D = $translationNode/rotationNode/adjustXNode/redressNode/MeshInstance3D
 
 static func create(segments: int) -> Prism:
 	if _scene == null:

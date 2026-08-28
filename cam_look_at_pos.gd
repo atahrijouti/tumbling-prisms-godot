@@ -5,7 +5,11 @@ extends EditorScript
 func _run() -> void:
 	var cam := get_scene().get_node("Camera3D") as Camera3D
 	var prisms := get_scene().get_node("Prisms") as Node3D
-	cam.look_at_from_position(cam.position, _center_of(prisms), Vector3.UP)
+	var centerOfPrisms = _center_of(prisms)
+	# cam.look_at_from_position(cam.position, centerOfPrisms, Vector3.UP)
+	cam.look_at_from_position(cam.position, Vector3(-2.469487806639386, 1.0630914597854084, 4.916779672742233), Vector3.UP)
+	print(centerOfPrisms)
+
 	print("aimed camera")
 
 func _center_of(root: Node3D) -> Vector3:
