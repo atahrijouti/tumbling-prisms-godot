@@ -13,7 +13,10 @@ size = Vector2(2, 100)
 script = ExtResource("1_glv2v")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1691968508]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0.1, 0)
+transform = Transform3D(-0.7149708, 0.32396904, -0.61956495, 0, 0.8861635, 0.46337277, 0.69915426, 0.33129802, -0.63358104, -9.204387, 7.41696, -6.1639633)
+fov = 25.0
+near = 0.01
+far = 2000.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1223837618]
 transform = Transform3D(0.04042639, -0.062462967, 0.99722815, -0.09646093, 0.9931383, 0.066117205, -0.9945154, -0.09886643, 0.034123763, 4.181268, 0.52057624, 2.9876335)
@@ -27,7 +30,4 @@ mesh = SubResource("PlaneMesh_j02q3")
 
 [node name="Prisms" type="Node3D" parent="." unique_id=1294502340]
 
-[node name="Prism2" parent="Prisms" unique_id=1748292164 instance=ExtResource("2_uu6xs")]
-
 [node name="Prism" parent="Prisms" unique_id=25556396 instance=ExtResource("2_uu6xs")]
-_segments = 5

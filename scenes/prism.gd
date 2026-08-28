@@ -10,7 +10,7 @@ static var _scene: PackedScene
 
 @export_range(0, 1) var _progress: float = 0.0:
 	set(value):
-		_progress = minf(maxf(0, value), 1)
+		_progress = clampf(value, 0, 1)
 		if is_node_ready():
 			applyProgress(_progress)
 
@@ -21,6 +21,7 @@ var maxAngle: float = PI;
 @onready var translationNode: Node3D = %translationNode
 @onready var redressNode: Node3D = %redressNode
 @onready var rotationNode: Node3D = %rotationNode
+@onready var adjustXNode: Node3D = %adjustXNode
 
 
 static func create(segments: int) -> Prism:
@@ -32,6 +33,7 @@ static func create(segments: int) -> Prism:
 
 func _ready() -> void:
 	applySegments()
+	applyProgress(_progress)
 
 func applySegments() -> void:
 	var mesh := meshInstance.mesh as CylinderMesh
@@ -50,9 +52,10 @@ func applySegments() -> void:
 	maxAngle = PI - angleSum / _segments
 
 	redressNode.rotation.z = -redressAngle
+	adjustXNode.position.x = -1
 	translationNode.position.z = _segments - 2
 
 func applyProgress(progress: float) -> void:
 	var angle = -maxAngle * progress
-	rotationNode.rotation.z = -angle
-	translationNode.position.x = progress
+	rotationNode.rotation.z = angle
+	translationNode.position.x = -progress
