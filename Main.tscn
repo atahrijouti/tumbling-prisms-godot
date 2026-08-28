@@ -3,19 +3,27 @@
 [ext_resource type="Script" uid="uid://dkrdoiqn51vrh" path="res://Main.gd" id="1_glv2v"]
 [ext_resource type="PackedScene" uid="uid://dt0t4cdltogn6" path="res://scenes/Prism.tscn" id="2_uu6xs"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_j02q3"]
+size = Vector2(2, 100)
+
 [node name="MainScene" type="Node3D" unique_id=1808004640]
 script = ExtResource("1_glv2v")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1691968508]
-transform = Transform3D(-0.74915296, 0.27046722, -0.604663, 0, 0.9128407, 0.40831584, 0.6623971, 0.305891, -0.6838573, -4.550171, 3.0726318, -1.6461182)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -2)
+projection = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1223837618]
-transform = Transform3D(1, 0, 0, 0, 0.89758223, 0.44084707, 0, -0.44084707, 0.89758223, 0, 2.8881836, 2.9876335)
+transform = Transform3D(0.04042639, -0.062462967, 0.99722815, -0.09646093, 0.9931383, 0.066117205, -0.9945154, -0.09886643, 0.034123763, 4.181268, 0.52057624, 2.9876335)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1022293719]
-transform = Transform3D(0.46450824, -0.27046213, 0.84325725, 0.1304953, 0.96273065, 0.23689808, -0.8759016, 0, 0.48249033, 2.4791641, 2.0429034, 0)
+transform = Transform3D(-0.6826851, 0.28104514, -0.6745033, 0.13021435, 0.95509213, 0.26616418, 0.7190168, 0.093876325, -0.6886233, -2.607722, 1.867001, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1846032948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_j02q3")
 
 [node name="Prisms" type="Node3D" parent="." unique_id=1294502340]
 
-[node name="Prism" parent="." unique_id=1748292164 instance=ExtResource("2_uu6xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.3073235)
+[node name="Prism" parent="Prisms" unique_id=1748292164 instance=ExtResource("2_uu6xs")]
+segments = 14

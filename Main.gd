@@ -6,16 +6,10 @@ extends Node3D
 
 func _ready() -> void:
 	pass
-
-
-
-
-
-
-	# for i in prism_count:
-	# 	var segments = i + 4
-	# 	var prismNode = Prism.create_prism(segments)
-	# 	prismNode .position.z = i
-	# 	prisms.add_child(prismNode)
-	# 	Utils.own_recursive(prismNode, self)
-	# 	prismNode.name = "Prism " + str(segments)
+	#for i in prism_count:
+		#var segments = i + 4
+		#var prismNode = Prism.create_prism(segments)
+		#prismNode .position.z = i
+		#prisms.add_child(prismNode)
+		#Utils.own_recursive(prismNode, self)
+		#prismNode.name = "Prism " + str(segments)

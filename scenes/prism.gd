@@ -1,39 +1,39 @@
-class_name Prism
-extends RefCounted
+class_name Prism extends Node3D
 
-static func create_prism(segments):
-	var prism := MeshInstance3D.new()
-	var mesh = CylinderMesh.new()
+static var _scene: PackedScene
 
-	mesh.height = 0.5
+@export_range(4, 32) var segments: int = 4:
+	set(value):
+		segments = maxi(4, value)
+		if is_node_ready():
+			applySegments()
+
+@onready var translationNode: Node3D = $translationNode
+@onready var redressNode: Node3D = $translationNode/rotationNode/adjustXNode/redressNode
+@onready var meshInstance: MeshInstance3D = $translationNode/rotationNode/adjustXNode/redressNode/MeshInstance3D
+
+
+static func create(segments: int) -> Prism:
+	if _scene == null:
+		_scene = load("res://scenes/Prism.tscn")
+	var prism: Prism = _scene.instantiate()
+	prism.segments = segments
+	return prism
+
+func _ready() -> void:
+	applySegments()
+
+func applySegments() -> void:
+	var mesh := meshInstance.mesh as CylinderMesh
+	if mesh == null:
+		mesh = CylinderMesh.new()
+		mesh.height = 0.5
+		meshInstance.mesh = mesh
 	mesh.radial_segments = segments
-	prism.name = "Prism"
-	prism.mesh = mesh
-	prism.rotation.x = PI / 2
 
-	var angleSum = (segments - 2) * PI
-	var redressAngle = (PI / 2) - angleSum / segments / 2
-	# var maxAngle = PI - angleSum / segments
+	var angleSum := (segments - 2) * PI
+	var redressAngle := PI / 2.0 - angleSum / segments / 2.0
+	var maxAngle = PI - angleSum / segments
 
-
-	var translationAnchor = Node3D.new()
-	translationAnchor.name = "TranslationAnchor"
-	var mirrorAnchor = Node3D.new()
-	mirrorAnchor.name = "MirrorAnchor"
-	var rotationAnchor = Node3D.new()
-	rotationAnchor.name = "RotationAnchor"
-	var adjustXAnchor = Node3D.new()
-	adjustXAnchor.name = "AdjustXAnchor"
-	var redressAnchor = Node3D.new()
-	redressAnchor.name = "RedressAnchor"
-
-	redressAnchor.rotation.z += -redressAngle
-	redressAnchor.add_child(prism)
-	adjustXAnchor.add_child(redressAnchor)
-	rotationAnchor.add_child(adjustXAnchor)
-	translationAnchor.add_child(rotationAnchor)
-	translationAnchor.add_child(mirrorAnchor)
-
-	translationAnchor.position.z = segments - 2
-
-	return translationAnchor
+	redressNode.rotation.z = -redressAngle
+	translationNode.position.z = segments - 2

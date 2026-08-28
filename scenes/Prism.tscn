@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://dt0t4cdltogn6"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_bun7f"]
-height = 0.5
-radial_segments = 4
+[ext_resource type="Script" uid="uid://niwewwhuwpni" path="res://scenes/prism.gd" id="1_prism"]
 
 [node name="Prism" type="Node3D" unique_id=1748292164]
+script = ExtResource("1_prism")
 
 [node name="translationNode" type="Node3D" parent="." unique_id=1901094442]
 
@@ -15,4 +14,4 @@ radial_segments = 4
 [node name="redressNode" type="Node3D" parent="translationNode/rotationNode/adjustXNode" unique_id=820435690]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="translationNode/rotationNode/adjustXNode/redressNode" unique_id=180094284]
-mesh = SubResource("CylinderMesh_bun7f")
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
