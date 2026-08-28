@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://dkrdoiqn51vrh" path="res://Main.gd" id="1_glv2v"]
 [ext_resource type="PackedScene" uid="uid://dt0t4cdltogn6" path="res://scenes/Prism.tscn" id="2_uu6xs"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu6xs"]
+albedo_color = Color(0.1882353, 1, 1, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_j02q3"]
 size = Vector2(2, 100)
 
@@ -10,7 +13,7 @@ size = Vector2(2, 100)
 script = ExtResource("1_glv2v")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1691968508]
-transform = Transform3D(-0.79236233, 0, -0.6100509, 0, 1, 0, 0.6100509, 0, -0.79236233, -1.7611266, 0, 0.98208416)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0.1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1223837618]
 transform = Transform3D(0.04042639, -0.062462967, 0.99722815, -0.09646093, 0.9931383, 0.066117205, -0.9945154, -0.09886643, 0.034123763, 4.181268, 0.52057624, 2.9876335)
@@ -19,7 +22,7 @@ transform = Transform3D(0.04042639, -0.062462967, 0.99722815, -0.09646093, 0.993
 transform = Transform3D(-0.6826851, 0.28104514, -0.6745033, 0.13021435, 0.95509213, 0.26616418, 0.7190168, 0.093876325, -0.6886233, -2.607722, 1.867001, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1846032948]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.37116897, 0)
+material_override = SubResource("StandardMaterial3D_uu6xs")
 mesh = SubResource("PlaneMesh_j02q3")
 
 [node name="Prisms" type="Node3D" parent="." unique_id=1294502340]

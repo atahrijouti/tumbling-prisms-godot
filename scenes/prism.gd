@@ -28,8 +28,6 @@ static func create(segments: int) -> Prism:
 		_scene = load("res://scenes/Prism.tscn")
 	var prism: Prism = _scene.instantiate()
 	prism._segments = segments
-	prism.position.y = 0.5 / sin(PI / float(segments))
-	prism.rotation.x = PI / 2
 	return prism
 
 func _ready() -> void:
@@ -45,6 +43,7 @@ func applySegments() -> void:
 	mesh.radial_segments = _segments
 	mesh.top_radius = radius
 	mesh.bottom_radius = radius
+	meshInstance.position.y = radius
 
 	var angleSum := (_segments - 2) * PI
 	var redressAngle := PI / 2.0 - angleSum / _segments / 2.0
@@ -55,5 +54,5 @@ func applySegments() -> void:
 
 func applyProgress(progress: float) -> void:
 	var angle = -maxAngle * progress
-	rotationNode.rotation.z = angle
-	translationNode.position.x = -progress
+	rotationNode.rotation.z = -angle
+	translationNode.position.x = progress
